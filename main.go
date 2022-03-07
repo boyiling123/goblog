@@ -12,6 +12,7 @@ func handleFunc(w http.ResponseWriter, r *http.Request) {
 	} else if r.URL.Path == "/about" {
 		fmt.Fprint(w, "这是关于页面<a href='https://baidu.com'>访问百度</a>")
 	} else {
+		w.WriteHeader(http.StatusNotFound)
 		fmt.Fprint(w, "<h1>404</h1>")
 	}
 
